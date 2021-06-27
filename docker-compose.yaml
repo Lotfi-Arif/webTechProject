@@ -8,3 +8,30 @@ services:
         dockerfile: Dockerfile
     ports: 
         - 3030:3000
+ phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin
+    restart: always
+    hostname: ambitiongroup.live
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+    environment:
+       MYSQL_ROOT_PASSWORD: password
+       PMA_HOST: db
+       PMA_ARBITRARY: 1
+       PMA_PORT: 3306
+      #  PMA_ABSOLUTE_URI: https://ambitiongroup.live/phpmyadmin/
+  db:
+    image: mariadb:10.3
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: webtech123
+      MYSQL_DATABASE: dev_profile
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - app-db-data:/var/lib/mysql
+volumes:
+  app-db-data:
