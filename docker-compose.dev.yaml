@@ -3,9 +3,14 @@ services:
   api:
     container_name: api
     image: "dovaluffy/webtech-project"
+    build: 
+        context: .
+        dockerfile: Dockerfile
+    depends_on: 
+        - db
     ports: 
-      - 3030:3000
-  phpmyadmin:
+        - 3030:3000
+phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin
     restart: always
@@ -19,7 +24,6 @@ services:
        PMA_HOST: db
        PMA_ARBITRARY: 1
        PMA_PORT: 3306
-       PMA_ABSOLUTE_URI: https://ambitiongroup.live/phpmyadmin/
   db:
     image: mariadb:10.3
     ports:
