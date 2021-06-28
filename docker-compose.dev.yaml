@@ -10,7 +10,7 @@ services:
         - db
     ports: 
         - 3030:3000
-phpmyadmin:
+  phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin
     restart: always

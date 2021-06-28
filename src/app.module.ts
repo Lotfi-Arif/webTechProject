@@ -10,7 +10,7 @@ import { Banner } from './banners/entities/banner.entity';
     BannersModule,
     TypeOrmModule.forRoot({
       type: 'mariadb',
-      host: 'ambitiongroup.live',
+      host: 'db',
       port: 3306,
       username: 'root',
       password: 'password',
