@@ -13,7 +13,7 @@ import { Banner } from './banners/entities/banner.entity';
       host: 'db',
       port: 3306,
       username: 'root',
-      password: 'password',
+      password: 'Web.Tech123',
       database: 'dev_profile',
       autoLoadEntities: true,
       entities: [Banner],
